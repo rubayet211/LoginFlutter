@@ -1,6 +1,6 @@
-# login_stateful
+# Flutter Login
 
-A new Flutter project.
+This is a flutter app that I am developing while I learn flutter. This will focus on login page and validation.
 
 ## Getting Started
 
