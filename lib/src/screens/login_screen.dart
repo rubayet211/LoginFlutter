@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_stateful/src/constants/color.dart';
+import '../constants/color.dart';
 
 class LoginScreen extends StatefulWidget {
   createState() {
@@ -8,14 +8,17 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+  final formKey = GlobalKey<FormState>();
   Widget build(context) {
     return Container(
       margin: EdgeInsets.all(20.0),
       child: Form(
+        key: formKey,
         child: Column(
           children: [
             emailField(),
             passowordField(),
+            Container(margin: EdgeInsets.only(top: 25.0)),
             submitButton(),
           ],
         ),
@@ -49,7 +52,9 @@ class LoginScreenState extends State<LoginScreen> {
         backgroundColor: MaterialStateProperty.all<Color>(kGreen),
       ),
       child: Text('Submit!'),
-      onPressed: () {},
+      onPressed: () {
+        formKey.currentState?.reset();
+      },
     );
   }
 }
