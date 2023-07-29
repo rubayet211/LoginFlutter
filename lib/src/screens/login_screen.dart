@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_stateful/src/constants/color.dart';
 
 class LoginScreen extends StatefulWidget {
   createState() {
@@ -15,7 +16,7 @@ class LoginScreenState extends State<LoginScreen> {
           children: [
             emailField(),
             passowordField(),
-            //submitButton(),
+            submitButton(),
           ],
         ),
       ),
@@ -42,5 +43,13 @@ class LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  //Widget submitButton() {}
+  Widget submitButton() {
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(kGreen),
+      ),
+      child: Text('Submit!'),
+      onPressed: () {},
+    );
+  }
 }
