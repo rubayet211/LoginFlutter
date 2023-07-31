@@ -9,6 +9,10 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
+
+  String? email = '';
+  String? password = '';
+
   Widget build(context) {
     return Container(
       margin: EdgeInsets.all(20.0),
@@ -38,6 +42,9 @@ class LoginScreenState extends State<LoginScreen> {
           return 'Please enter a valid email';
         }
       },
+      onSaved: (value) {
+        email = value;
+      },
     );
   }
 
@@ -53,6 +60,9 @@ class LoginScreenState extends State<LoginScreen> {
           return 'Password must be at least 4 characters';
         }
       },
+      onSaved: (value) {
+        password = value;
+      },
     );
   }
 
@@ -63,7 +73,10 @@ class LoginScreenState extends State<LoginScreen> {
       ),
       child: Text('Submit!'),
       onPressed: () {
-        print(formKey.currentState?.validate());
+        if (formKey.currentState!.validate()) {
+          formKey.currentState!.save();
+          print('Time to post $email and $password to my API');
+        }
       },
     );
   }
